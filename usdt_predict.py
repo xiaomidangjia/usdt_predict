@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # ======= 正式开始执行
-
+prop = fm.FontProperties(fname='/root/usdt_predict/SimHei.ttf')
 # 读取原始数据
 date_now = datetime.datetime.utcnow()
 date_before = pd.to_datetime(date_now) - datetime.timedelta(days=8)
