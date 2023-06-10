@@ -185,7 +185,7 @@ if flag > 0 and len(raw_data) > 153:
 
 
     import telegram
-    fig_name = '/root/usdt_predict/out/未来24小时BTC价格趋势预测.png'
+    fig_name = '/root/usdt_predict/out/未来24小时BTC价格趋势预测.jpg'
     bot = telegram.Bot(token='6219784883:AAE3YXlXvxNArWJu-0qKpKlhm4KaTSHcqpw')
 
 
@@ -204,7 +204,7 @@ if flag > 0 and len(raw_data) > 153:
     txt = '【未来24小时BTC价格趋势预测】 @所有人\n' \
           '> 说明：%s \n\n'\
           '> ![数据监控结果](%s)\n'\
-          '> ###### 币coin搜索0xCarson,关注OKX实盘。 \n'%('红色线超出部分就是价格趋势预测',img_url)
+          '> ###### 币coin搜索0xCarson,关注OKX实盘。 \n'%('红色线超出部分就是BTC价格趋势预测',img_url)
     xiaoding.send_markdown(title='数据监控', text=txt)
 else:
     print('再来')
