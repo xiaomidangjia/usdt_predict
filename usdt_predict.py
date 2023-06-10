@@ -177,17 +177,16 @@ if flag > 0 and len(raw_data) > 153:
     axes.set_ylabel("BTC价格",fontsize=14,fontproperties=prop)
     axes_fu.set_ylabel("BTC价格趋势",fontsize=14,fontproperties=prop)
 
-    plt.savefig('未来24小时BTC价格趋势预测.jpg',  bbox_inches='tight')
+    plt.savefig('未来24小时BTC价格趋势预测.png',  bbox_inches='tight')
     plt.close()
 
     from watermarker.marker import add_mark
-    add_mark(file = "未来24小时BTC价格趋势预测.jpg", out = "out",mark = "0XCarson出品", opacity=0.2, angle=30, space=30)
+    add_mark(file = "未来24小时BTC价格趋势预测.png", out = "out",mark = "0XCarson出品", opacity=0.2, angle=30, space=30)
 
 
     import telegram
-    fig_name = '/root/usdt_predict/out/未来24小时BTC价格趋势预测.jpg'
+    fig_name = '/root/usdt_predict/out/未来24小时BTC价格趋势预测.png'
     bot = telegram.Bot(token='6219784883:AAE3YXlXvxNArWJu-0qKpKlhm4KaTSHcqpw')
-
 
     bot.sendDocument(chat_id='-840309715', document=open(fig_name, 'rb'))
     #bot.sendMessage(chat_id='-840309715', text=text)
