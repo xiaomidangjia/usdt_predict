@@ -197,7 +197,7 @@ if flag > 0 and len(raw_data) > 153:
 
     time_str = str(time.time())[0:10]
     key = 'usdt_pre_' + time_str + '.png'
-    img_url = gmt_img_url(key=key, local_file=fig_name)
+    img_url = gmt_img_url(key=key, local_file='/root/usdt_predict/out/未来24小时BTC价格趋势预测.png')
 
     xiaoding = DingtalkChatbot(webhook)
 
