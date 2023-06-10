@@ -10,7 +10,6 @@ import datetime
 #=====定义函数====
 #from HTMLTable import HTMLTable
 import os, sys
-import matplotlib
 from matplotlib import cm
 from matplotlib import pyplot as plt
 from matplotlib.patches import Circle, Wedge, Rectangle
@@ -158,6 +157,17 @@ for i in range(3):
     else:
         flag += 0
 if flag > 0 and len(raw_data) > 153:
+    test_df_1 = test_df[test_df.date>test_df['date_23'][len(test_df)-1]]
+    test_df_1['new_date'] = pd.to_datetime(test_df_1['date']) + datetime.timedelta(hours=23)
+    test_df_2 = test_df_1[['new_date','yijia']]
+    date_max_min = list(test_df_2['new_date'])
+    yijian_max_min = list(test_df_2['yijia'])
+
+    max_value_time = date_max_min[yijian_max_min.index(max(yijian_max_min))]
+    min_value_time = date_max_min[yijian_max_min.index(min(yijian_max_min))]
+    time_now = datetime.datetime.utcnow()
+    max_min_df = pd.DataFrame({'time_now':time_now,'max_value_time':max_value_time,'min_value_time':min_value_time},index=[0])
+    max_min_df.to_csv('usdt_24.csv',index=False)
     #======制定第4区域
 
     test_df = test_df[['date','price','yijia']]
@@ -183,15 +193,6 @@ if flag > 0 and len(raw_data) > 153:
     from watermarker.marker import add_mark
     add_mark(file = "未来24小时BTC价格趋势预测.png", out = "out",mark = "0XCarson出品", opacity=0.2, angle=30, space=30)
 
-
-    import telegram
-    fig_name = '/root/usdt_predict/out/未来24小时BTC价格趋势预测.png'
-    bot = telegram.Bot(token='6219784883:AAE3YXlXvxNArWJu-0qKpKlhm4KaTSHcqpw')
-
-    bot.sendDocument(chat_id='-840309715', document=open(fig_name, 'rb'))
-    #bot.sendMessage(chat_id='-840309715', text=text)
-
-
     #推送钉钉群
 
     time_str = str(time.time())[0:10]
@@ -207,9 +208,6 @@ if flag > 0 and len(raw_data) > 153:
     xiaoding.send_markdown(title='数据监控', text=txt)
 else:
     print('再来')
-
-
-
 
 
 
