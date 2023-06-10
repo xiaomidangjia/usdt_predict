@@ -177,33 +177,15 @@ if flag > 0 and len(raw_data) > 153:
     axes.set_ylabel("BTC价格",fontsize=14,fontproperties=prop)
     axes_fu.set_ylabel("BTC价格趋势",fontsize=14,fontproperties=prop)
 
-    #加水印
-    plt.text(0.1, 0.8, '0xCarson出品，lian xi+V：shengxiaruchu009',
-            fontsize=50, color='gray', alpha=0.5,
-            ha='center', va='center', rotation='30',fontproperties = prop)
-
-    plt.text(0.5, 0.5, '0xCarson出品，lian xi+V：shengxiaruchu009',
-            fontsize=50, color='gray', alpha=0.5,
-            ha='center', va='center', rotation='30',fontproperties = prop)
-
-    plt.text(0.7, 0.3, '0xCarson出品，lian xi+V：shengxiaruchu009',
-            fontsize=50, color='gray', alpha=0.5,
-            ha='center', va='center', rotation='30',fontproperties = prop)
-
-    plt.text(0.3, 0.3, '0xCarson出品，lian xi+V：shengxiaruchu009',
-            fontsize=50, color='gray', alpha=0.5,
-            ha='center', va='center', rotation='30',fontproperties = prop)
-
-    plt.text(0.9, 0.8, '0xCarson出品，lian xi+V：shengxiaruchu009',
-            fontsize=50, color='gray', alpha=0.5,
-            ha='center', va='center', rotation='30',fontproperties = prop)
-
-    plt.savefig('未来24小时BTC价格趋势预测.png', dpi=200, bbox_inches='tight')
+    plt.savefig('未来24小时BTC价格趋势预测.jpg',  bbox_inches='tight')
     plt.close()
+
+    from watermarker.marker import add_mark
+    add_mark(file = "未来24小时BTC价格趋势预测.jpg", out = "out",mark = "0XCarson出品", opacity=0.2, angle=30, space=30)
 
 
     import telegram
-    fig_name = '/root/usdt_predict/未来24小时BTC价格趋势预测.png'
+    fig_name = '/root/usdt_predict/out/未来24小时BTC价格趋势预测.png'
     bot = telegram.Bot(token='6219784883:AAE3YXlXvxNArWJu-0qKpKlhm4KaTSHcqpw')
 
 
