@@ -50,7 +50,7 @@ def gmt_img_url(key=None,local_file=None,**kwargs):
 
     return url
 #fpath = os.path.join(rcParams["datapath"], "fonts/ttf/cmr10.ttf")
-prop = fm.FontProperties(fname='/root/chain_every_day/SimHei.ttf')
+prop = fm.FontProperties(fname='/root/usdt_predict/SimHei.ttf')
 
 # ======= 正式开始执行
 
