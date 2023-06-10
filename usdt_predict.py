@@ -54,7 +54,7 @@ prop = fm.FontProperties(fname='/root/usdt_predict/SimHei.ttf')
 # ======= 正式开始执行
 
 # 读取原始数据
-date_now = str(datetime.datetime.utcnow())[0:10]
+date_now = datetime.datetime.utcnow()
 date_before = pd.to_datetime(date_now) - datetime.timedelta(days=8)
 # 读取原始数据
 raw_data = pd.read_csv('/root/usdt/usdt.csv')
