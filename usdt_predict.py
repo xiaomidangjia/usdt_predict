@@ -151,7 +151,7 @@ corr_df = corr_df.sort_values(by='corr',ascending=False)
 corr_df = corr_df.reset_index(drop=True)
 corr_df = corr_df[0:3]
 corr_df
-
+flag = 0
 for i in range(3):
     if corr_df['num'][i] in (22,23,24) and corr_df['corr'][i] > 0.7:
         flag += 1
